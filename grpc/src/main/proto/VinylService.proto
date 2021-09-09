@@ -1,0 +1,21 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package org.stuntbum.grpc;
+
+message QueryRequest {
+  string query = 1;
+}
+
+message Vinyl {
+  string artist = 1;
+  string album = 2;
+  string year = 3;
+}
+
+message QueryResponse {
+  repeated Vinyl vinyls = 1;
+}
+
+service VinylService {
+  rpc query(QueryRequest) returns (QueryResponse);
+}
