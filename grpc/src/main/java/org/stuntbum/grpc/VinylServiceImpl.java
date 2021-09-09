@@ -6,9 +6,7 @@ import io.grpc.stub.StreamObserver;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class VinylServiceImpl  extends VinylServiceGrpc.VinylServiceImplBase {
 
@@ -30,7 +28,6 @@ public class VinylServiceImpl  extends VinylServiceGrpc.VinylServiceImplBase {
     @Override
     public void query(QueryRequest queryRequest, StreamObserver<QueryResponse> responseObserver) {
 
-        VinylDO searched = new VinylDO();
         String query = queryRequest.getQuery().toLowerCase();
         List<Vinyl> found = new ArrayList<>();
         for (VinylDO v : vinyls) {
