@@ -26,8 +26,8 @@ public class SimpleController {
     }
 
     @GetMapping(path = "/api/query", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<VinylDO> query(@RequestParam String query) {
-        return grpcClient.doQuery(query);
+    public List<VinylDO> query(@RequestParam String q) {
+        return grpcClient.doQuery(q);
     }
 
 }
