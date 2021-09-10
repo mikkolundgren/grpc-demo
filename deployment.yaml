@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-demo
+spec:
+  selector:
+    matchLabels:
+      app: kube-demo
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: kube-demo
+    spec:
+      containers:
+      - name: api-service
+        image: api-service
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8880
+      - name: rpc-service
+        image: rpc-service
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8885
+        
